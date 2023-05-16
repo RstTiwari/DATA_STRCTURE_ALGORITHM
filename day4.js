@@ -96,3 +96,8 @@ array = array.push(2);
 
 console.log(`this is thre string send
 of the new log`);
+
+
+/**
+ * What 
+ */
