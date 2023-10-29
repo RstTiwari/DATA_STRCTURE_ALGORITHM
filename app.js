@@ -3,28 +3,47 @@ const express = require("express")
 const cors = require("cors")
 const app = express()
 app.use(cors())
-const port = 3000
+const port = 3003
 
 
 // here will implement middleware 
 
-app.get("/", (req, res) => {
+app.post("/home", (req, res) => {
       res.send( "the server is running perfectly over there")
+      res.setHeader('X-Foo', 'bar');
+
 });
 
 app.post("/products", async (req, res) => {
     try {
         const token = req.headers;
-        const { productId } = req.body;
-
-        // here will implemnt Service and logic
-        let productData = await prodcutrService();
-
+       
         let response = {
             success: 1,
-            data: productData,
+            data: [],
         };
         res.send(response);
+
+    } catch (error) {
+        console.error(error);
+        let response = {
+            success: 0,
+            message: error.message,
+        };
+        res.send(response);
+    }
+});
+app.post("/list", async (req, res) => {
+    try {
+        let headers = req.headers
+        console.log(headers)
+       
+        let response = {
+            success: 1,
+            data: [],
+        };
+        res.send(response);
+
     } catch (error) {
         console.error(error);
         let response = {
