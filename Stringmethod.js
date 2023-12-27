@@ -1,18 +1,37 @@
 let num = 5
 console.log( typeof num );
-
 let newString = "b" 
 
+/**
+ * @async
+ * String.at
+ */
+let has = [];
+function hasing(string) {
+    for (let i = 0; i < string.length; i++) {
+        has.push(string.codePointAt(i));
+    }
+    return has;
+}
 
+console.log(hasing("rohit"));
+
+function unHashing(array){
+  let str =  String.fromCodePoint(...array)
+  return str
+ 
+}
+
+console.log(unHashing[has])
 // chatCodeAt
-console.log(newString.charCodeAt(3),newString.charAt(3))
+console.log(newString.charCodeAt(0),newString.charAt(0),"--")
 console.log(newString.charCodeAt(0))
 
 //codePointAt
 const str = "iamtheTiwari";
 
 for (let i = 0; i < str.length; i++) {
-  console.log(str.codePointAt(i).toString(30));
+  console.log(str.codePointAt(i));
 } /**
 this meothod is not recommedned for using  */
 let hashed = []
@@ -80,3 +99,67 @@ console.log(paragraph.match(regex2));
 const str3 = "For more information, see Chapter 3.4.5.1";
 let regex3 = /\d\./i;
 console.log(str3.match(regex3));
+
+
+String.prototype.matchAll("regexExpression"); // return array matching Value 
+let matchAllString = "testee1testeeee2"
+let matchAllReg = /t(e)*\d/g
+let matchAllArrry = [...matchAllString.matchAll(matchAllReg)]
+console.log(matchAllArrry);
+
+
+String.prototype.normalize("NFD")  // return normalizes the char which has assigned a diffrent Unicode point
+let norString1 = "\u00F1"; // ñ
+let norString2 = "\u006E\u0303"; // ñ
+
+
+String.prototype.padEnd("targetLength", "charchter")  // return the paddeded Strign at the 
+
+
+
+String.prototype.padEnd("targetLength for String", "charchter")  // return the paddeded Strign at the endofString
+let padString = "the new Paragrph is equeat ot the"
+console.log(padString.padEnd(50,"-"));
+console.log("10".padEnd(20,"--"));
+console.log("rohit".padEnd(2,"---"));
+let padString2 = ""
+console.log(padString2.length);
+let newPadString = padString2.padEnd(20,"-")  // does not changes the Value of original String
+console.log(newPadString.length);
+
+
+String.prototype.padStart("maxLength","fillString")  // return the padded  Strings at sthe start
+let padString3 = "the new Paragrph is equeat ot the"
+console.log(padString3.padStart(36,padString));
+
+
+//String.row() // getting raw stign  without eacasping the / slash and all
+
+
+String.prototype.repeat()
+console.log("abe".repeat(7));
+console.log("abe".repeat());
+
+String.prototype.search("regexExpression")  // returns the index of the First match other wise return -1 
+let searchString = "iam the leader of this given owrld which can take care of thing which are not presnet in there for the use ! *"
+console.log(searchString.search(/[^ \w\s]/));   // not a word or white space or not a astropic word
+console.log(searchString[searchString.search(/[^\w\s]/)]);
+
+
+String.prototype.slice("indexStart","indexEnd")  // returns
+let sliceString = "You now who am i"
+console.log(sliceString.slice(1));
+
+
+String.prototype.split("seprator","limit")  // returns  array of String  with each value;
+const splitString = 'The quick brown fox jumps over the lazy dog.';
+console.log(splitString.split(" ")[0][0]);
+
+String.prototype.startsWith()
+
+String.prototype.toLocaleLowerCase()
+
+String.prototype.valueOf("")  // returns the value given value given
+
+
+
