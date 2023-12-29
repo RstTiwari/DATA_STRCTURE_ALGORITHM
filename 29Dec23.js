@@ -23,7 +23,7 @@ const kidsWithCandies = function (candies, extraCandies) {
 console.log(kidsWithCandies([2, 3, 5, 1, 3], 3));
 
 const  reverseVowels = function(s) {
-   let regex = new RegExp(/[a ,e,i ,o ,u ,A,E,I,O,U]/)
+   let regex = new RegExp(/[a,e,i ,o ,u ,A,E,I,O,U]/)
    let voweles =  s.split(regex)
    console.log(voweles);
 };
