@@ -25,7 +25,7 @@ const productExceptSelf2 = (nums) => {
         productBefore *= nums[i];
     }
     let productAfter = 1;
-    for (let i = nums.length -1; i >= 0; i--) {
+    for (let i = nums.length -1 i >= 0; i--) {
         result[i] *= productAfter;
         productAfter *= nums[i];
     }
