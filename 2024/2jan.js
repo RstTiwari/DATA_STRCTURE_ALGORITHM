@@ -4,6 +4,7 @@ const reverseVowels = function(s) {
     let regex = new RegExp(/[aeiouAEIOU]/)
     let str1 = s.split("")
     while(i < j){
+        
         if(!regex.test(str1[i])){
             i++
            continue
