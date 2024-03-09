@@ -11,7 +11,6 @@ function nestedArraySum(array) {
     return sum;
 }
 
-
 function nestArrayObjectSum(object) {
     let sum = 0;
     for (let key in object) {
@@ -66,75 +65,80 @@ function productOfArray(array) {
 }
 console.log(productOfArray([2, 3, 4, 5, 67, 8, 89]));
 
-
 {
     // accept a number and give sum of number from 0 till that number
 }
-function recursiveRange(num){
-   if(num ===0 ){
-    return 0
-   }
-   const sum = num + recursiveRange(num - 1)
-   return sum
+function recursiveRange(num) {
+    if (num === 0) {
+        return 0;
+    }
+    const sum = num + recursiveRange(num - 1);
+    return sum;
 }
 console.log(recursiveRange(10));
 
-
-
-
-function fib(num , a =0 , b = 1 ){
-      if(num <= 0){
-        return a
-      }
-      const nthNumber = fib(num -1 , b ,a +b)
-      return nthNumber
-  }
-
-console.log(fib(35))
-
-function reversStringRecusrsion (str){
-     if(str.length <= 1){
-        return str[0]
-     }
-
-     const reversed = reversStringRecusrsion(str.substring(1))
-     return reversed + str[0]
+function fib(num, a = 0, b = 1) {
+    if (num <= 0) {
+        return a;
+    }
+    const nthNumber = fib(num - 1, b, a + b);
+    return nthNumber;
 }
 
-console.log(reversStringRecusrsion("rohit"))
+console.log(fib(35));
+
+function reversStringRecusrsion(str) {
+    if (str.length <= 1) {
+        return str[0];
+    }
+
+    const reversed = reversStringRecusrsion(str.substring(1));
+    return reversed + str[0];
+}
+
+console.log(reversStringRecusrsion("rohit"));
 
 /**
  * @params Wirte recursive fucntion to check if the given value is Palindrom or not
- *  @input Takes a String 
+ *  @input Takes a String
  * @output return binary value weather true or not
  */
 
-function checkPalindrome (str){
-    console.log(str);
-    if(str.length <= 1){
-        return str[0]
+function checkPalindrome(str) {
+    if (str.length <= 1) {
+        return true;
     }
     // helper function two check if first and last valuers are equal or not
-    if(firstValue(str) !== lastValue(str)){
-        return false
+    if (str[0] !== str[str.length - 1]) {
+        return false;
     }
 
     // now Helper fumnction to get middle of String with first and last vlaue
-    checkPalindrome(getMidleString(str))
-    return true
+    return checkPalindrome(str[(1, str.length - 1)]);
 }
-console.log(checkPalindrome("tenet"))
+console.log(checkPalindrome("rohit"));
 
-function firstValue (str){
-    console.log(str[0]);
-    return str[0]
-}
-function lastValue (str){
-    console.log(str[str.length -1]);
-    return str[str.length -1]
-}
+/**
+ * Flatten an Array whiuch having sub array
+ *
+ */
 
-function getMidleString (str){
-    console.log(str[1,-1])
-    return str[1 ,-1]
-}
+
+
+
+const flateArray = (array)=>{
+    let newArray = []
+   for (let index = 0; index <= array.length-1; index++) {
+    let element = array[index];
+    if(Array.isArray(element))
+    {
+        newArray = newArray.concat(flateArray(element))
+    }else{
+        newArray.push(element)
+    }
+    
+   }
+   return newArray
+};
+
+console.log(flateArray([1, 2, 3, [4,[12,34,55], 5] ]))
