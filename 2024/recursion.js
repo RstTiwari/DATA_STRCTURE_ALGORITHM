@@ -54,7 +54,7 @@ function power(base, exp) {
     }
     return base * power(base, exp - 1);
 }
-console.log(power(5, 5));
+console.log(power(5, -2),"--");
 
 function productOfArray(array) {
     if (array.length <= 1) {
@@ -114,9 +114,9 @@ function checkPalindrome(str) {
     }
 
     // now Helper fumnction to get middle of String with first and last vlaue
-    return checkPalindrome(str[(1, str.length - 1)]);
+    return checkPalindrome(str[1, str.length - 1]);
 }
-console.log(checkPalindrome("rohit"));
+console.log(checkPalindrome("tenet"));
 
 /**
  * Flatten an Array whiuch having sub array
@@ -142,3 +142,17 @@ const flateArray = (array)=>{
 };
 
 console.log(flateArray([1, 2, 3, [4,[12,34,55], 5] ]))
+
+/*
+Capitalize First
+*/
+function capitalizeFirst (array){
+    if(array.length <= 1){
+        return array[0]
+    }
+
+    return array[0].charAt(0).toUpperCase()
+}
+
+console.log(capitalizeFirst(['car','taco','banana']));
+
