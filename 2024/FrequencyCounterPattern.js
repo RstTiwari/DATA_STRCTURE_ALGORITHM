@@ -84,6 +84,7 @@ function sumOfTwo(array, target) {
             pairOfArray.push([item, toAciveTar]);
         }
     }
+
     return pairOfArray;
 }
 
@@ -95,3 +96,42 @@ console.log(sumOfTwo([12, 23, 4, 5, 24, 23, 23, 2], 14));
  * 2) Word Pattern
  * 3) Minimum Window Substring
  */
+
+/**lOGNEST Substring */
+
+function longestSubstring(str) {
+    // first map the whole string into as the object ;
+    const obj1 = {};
+    for (let char of str) {
+        obj1[char] = (obj1[char] || 0) + 1;
+    }
+    for (let index in str) {
+        if (obj1[str[index]] > 1) {
+            const left = str.substring(0, index);
+            console.log(left, index);
+            const right = str.substring(index + 1);
+            console.log(right);
+            if (left.length > right.length) {
+                return left;
+            } else {
+                return right;
+            }
+        }
+    }
+}
+
+console.log(longestSubstring("theende"));
+
+function areThereDuplicates(...array) {
+    const obj2 = {};
+    for (let item of array) {
+        obj2[item] = (obj2[item] || 0) + 1;
+    }
+    for (let key of array) {
+        if (obj2[key] >= 2) {
+            return true;
+        }
+    }
+    return false
+}
+console.log(areThereDuplicates(1, 2, 3, 4, 5));
