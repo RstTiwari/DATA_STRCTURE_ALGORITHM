@@ -77,7 +77,7 @@ function sumOfTwo(array, target) {
         obj1[item] = (obj1[item] || 0) + 1;
     }
     const pairOfArray = [];
-    
+
     for (let item of array) {
         const toAciveTar = target - item;
         if (obj1[toAciveTar] && obj1[toAciveTar] >= 0) {
@@ -88,3 +88,10 @@ function sumOfTwo(array, target) {
 }
 
 console.log(sumOfTwo([12, 23, 4, 5, 24, 23, 23, 2], 14));
+
+/**
+ * Questions to Practise in Evening Sections
+ * 1) Longest Substring with K Distinct Characters
+ * 2) Word Pattern
+ * 3) Minimum Window Substring
+ */
