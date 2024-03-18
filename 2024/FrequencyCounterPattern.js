@@ -100,30 +100,39 @@ console.log(sumOfTwo([12, 23, 4, 5, 24, 23, 23, 2], 14));
 /**lOGNEST Substring */
 
 function longestSubstring(str) {
-    // first map the whole string into as the object ;
-    const obj1 = {};
-    for (let char of str) {
-        obj1[char] = (obj1[char] || 0) + 1;
-    }
-    for (let index in str) {
-        if (obj1[str[index]] > 1) {
-            const left = str.substring(0, index);
-            console.log(left, index);
-            const right = str.substring(index + 1);
-            console.log(right);
-            if (left.length > right.length) {
-                return left;
-            } else {
-                return right;
+    // keep the tracl current string
+    // keep the track of longest string
+    // have key object named as visited key
+    let visited = {};
+    let current = "";
+    let longest = "";
+
+    for (let i = 0; i < str.length; i++) {
+        console.log(visited[str[i]]);
+        if (!(str[i] in visited)) {
+            current = +str[i];
+            visited[str[i]] = i;
+        } else {
+            if (current.length >= longest.length) {
+                longest = current;
             }
+            current = "";
+            i = visited[str[i]] + 1;
+            visited = {};
         }
     }
+
+    if (current.length >= longest.length) {
+        longest = current;
+    }
+    console.log(longest, visited, "--");
+    return longest;
 }
 
 console.log(longestSubstring("theende"));
 
 function areThereDuplicates(...array) {
-    const obj2 = {};
+    let obj2 = {};
     for (let item of array) {
         obj2[item] = (obj2[item] || 0) + 1;
     }
@@ -132,6 +141,6 @@ function areThereDuplicates(...array) {
             return true;
         }
     }
-    return false
+    return false;
 }
 console.log(areThereDuplicates(1, 2, 3, 4, 5));

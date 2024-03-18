@@ -8,7 +8,7 @@ function sumZero(array) {
     while (left < right) {
         const sum = array[left] + array[right];
         if (sum === 0) {
-            return [array[left],array[right]];
+            return [array[left], array[right]];
         } else {
             if (sum <= 0) {
                 left = left + 1;
