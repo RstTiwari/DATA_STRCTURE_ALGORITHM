@@ -108,7 +108,6 @@ function longestSubstring(str) {
     let longest = "";
 
     for (let i = 0; i < str.length; i++) {
-        console.log(visited[str[i]]);
         if (!(str[i] in visited)) {
             current = +str[i];
             visited[str[i]] = i;
