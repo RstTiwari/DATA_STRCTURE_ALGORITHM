@@ -1,3 +1,19 @@
-console.log(Math.floor(Date.now()/1000))
+import React,{useState} from 'react'
 
-console.log(Math.floor(new Date("Mon Jan 01 2024 15:30:02 GMT+0530 (India Standard Time)").getTime()/1000))
+function Counter() {
+    const [count,setCount] = useState(0)
+    setCount((pre)=>{
+        pre + 3
+    })
+  return (
+    <div>
+      
+    </div>
+  )
+}
+
+export default practise
+
+const thorttling  =(func,count)=>{
+    return func()
+} 
