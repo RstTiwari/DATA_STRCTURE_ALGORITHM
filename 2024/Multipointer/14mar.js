@@ -25,4 +25,4 @@ function toSum(array, target) {
     return null;
 }
 
-console.log(toSum([1, 2, 3, 4, 5, 2, 10], 7));
+console.log(toSum([12, 2, 34, 41, 3, 3], 5));
