@@ -186,8 +186,80 @@ console.log(padString.padStart(40, "---"));
 const repeatString = "New Repeat";
 console.log(repeatString.repeat(8));
 
-
 /**
  * replace(pattern,replacement)
- * @par
+ * @param pattern ==>  it can be string or regex expresion to find out in the bigger string;
+ * @param replacement ===>  its small string  to replace in the bigger string
+ * @returns String  ===> it returns new String does not mutate the old String old remains the same
+ *
  */
+const replaceString = "i love apples and oranges";
+console.log(replaceString.replace("", "--")); // regex is empty its just add the value on the frontend side;
+
+console.log(replaceString.replace(" ", "New")); // replce the first accurance
+
+console.log(replaceString.replace(/[a-z]/, "A")); //Ahe new Text for replcing
+console.log(replaceString.replace(/f/, "$$")); // the new Text $or replcing   // will never be used
+
+const updateReplaceString = replaceString.replace(/apples/, "$& bananas");
+console.log(updateReplaceString); //i love apples bananas and oranges
+
+console.log(replaceString.replace(""));
+
+const replaceRegexGlobal = /apples/gi;
+const replaceGlobalString =
+    "i love the Apples and small apples also the Big aPPles";
+console.log(replaceGlobalString.replace(replaceRegexGlobal, "oranges"));
+
+/**===================same as replace button========================= */
+
+/**
+ * replaceAll(pattern,replacment)
+ * @param pattern ==> pattern that matches substring in bigString
+ * @param replacement ==> small string that replace the matched
+ */
+
+/**
+ * search(regex)
+ * @param regex ==> regex epression to find the the valaue
+ * @returns first index of matched value
+ *  g has not effect in search it's gives first index
+ *  test(regex) ==> use this method if want to check present or not as it give boolean value
+ *  match(regex)  ==> use this if want to find the value of matched stirng
+ */
+
+const searchString =
+    "the search point is the most amzing thing to ever happend";
+console.log(searchString.search("point")); // 11 index of matched value
+console.log(/point/.test(searchString));
+
+/**
+ * slice(startIndex,endIndex)
+ * @param startIndex the value at which to start it will be included in newstring
+ * @param endIndex the value at which to end the string , it will not be included in newString
+ */
+
+const sliceString = "the slice string that is going to be sliced";
+console.log(sliceString.slice(1));
+
+/**
+ * split()
+ */
+
+/***======================== slice and substring arethey both are same   with slight diffrence in both the thing*/
+/**
+ * substring(startIndex,endIndex)
+ * @param startIndex
+ * @param endIndex
+ * @returns new sring without changin the original onee
+ * => it doesn't take minus index and just swwipe up the value
+ */
+
+const substringString = "the new sunstring text";
+const substring1 = substringString.substring(2, -3); //th
+const substring2 = substringString.slice(2, -3); //e new sunstring t
+
+console.log(substringString, "--", substring1, "--", substring2);
+
+
+
