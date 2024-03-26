@@ -11,14 +11,10 @@ function removeDuplicate(array) {
     while (right < array.length) {
         if (array[left] !== array[right]) {
             array[left] = array[right];
-            left ++
-            console.log(right, "--", array);
-        } 
-        right ++
+            left++;
+        }
+        right++;
     }
-    console.log(array);
-    return array.length;
+    return left;
 }
-console.log(removeDuplicate([1, 1, 2,1,3]));
- //                             l  r
- //                                l r
+console.log(removeDuplicate([1, 1, 1, 2, 3, 4, 5, 6, 6]));
