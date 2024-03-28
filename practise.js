@@ -1,19 +1,12 @@
-import React,{useState} from 'react'
-
-function Counter() {
-    const [count,setCount] = useState(0)
-    setCount((pre)=>{
-        pre + 3
-    })
-  return (
-    <div>
-      
-    </div>
-  )
+const Customer = {
+  name:{
+    value:"rohit",
+    writable:false,
+    enumerable:true
+  }
 }
 
-export default practise
 
-const thorttling  =(func,count)=>{
-    return func()
-} 
+console.log(Customer);
+Customer.name ="Tiwari"
+console.log(Customer);
