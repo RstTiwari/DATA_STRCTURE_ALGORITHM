@@ -1,12 +1,14 @@
-const Customer = {
-  name:{
-    value:"rohit",
-    writable:false,
-    enumerable:true
-  }
-}
+console.log("Start");
 
+setTimeout(() => {
+    console.log("F");
+}, 0);
 
-console.log(Customer);
-Customer.name ="Tiwari"
-console.log(Customer);
+setImmediate(() => {
+    console.log("G");
+}, 100);
+
+process.nextTick(() => {
+    console.log("Callback is executed");
+});
+console.log("End");
