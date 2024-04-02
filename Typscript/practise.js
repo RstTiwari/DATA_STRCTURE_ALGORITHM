@@ -42,3 +42,12 @@ var numericEnums;
     numericEnums[numericEnums["west"] = 3] = "west";
 })(numericEnums || (numericEnums = {}));
 console.log(numericEnums.west);
+var carYear = 2020;
+var carName = "Audi";
+console.log(carYear, carName);
+var rectangle = {
+    height: 200,
+    width: 300,
+    name: "Audi"
+};
+console.log(rectangle);
