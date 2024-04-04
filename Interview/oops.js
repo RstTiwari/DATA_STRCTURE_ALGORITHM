@@ -54,8 +54,10 @@ class Student extends Person {
 // it also intertetaes propetiy from Parent class Person
 const studenOfSummer = new Student("summer", "tiwari", 2024);
 
-// introduceSelf is ploytmoprphisem fucntion which behaved diffrenctly in diffent enviorment
+// introduceSelf function  is ploytmoprphisem fucntion which behaved diffrenctly in diffent enviorment
 studenOfSummer.introduceSelf();
 mathSir.introduceSelf();
 
-/**The method int */
+/**ENCAPCULATION*/ 
+//===> if introduceSelf is polymorphism 
+// for Proffesor class  grade is encapsulation method and  teaches is encapsulated property
