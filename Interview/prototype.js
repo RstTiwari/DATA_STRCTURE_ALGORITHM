@@ -73,3 +73,4 @@ console.log(prototypeFunction1 instanceof Object);
 
 const prototypeFunction1Instance = new prototypeFunction1()
 console.log(prototypeFunction1Instance.prototype); // false becase prototype is  property of constructor function not a instance method
+
