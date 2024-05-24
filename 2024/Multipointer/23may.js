@@ -1,29 +1,49 @@
-// i will consider this as an sorted Array
-function sumOfZero(array, target) {
-    let left = 0;
-    let right = 0;
-    let sum = array[left];
-    while (right < array.length) {
-        if (sum === target) {
-            return [left, right];
-        } else if (sum < target) {
-            right++;
-            if (right <= array.length) {
-                sum += array[right];
+// It's better to solve this kind of questions with the help of The HasMap Method
+
+function twoSum(nums, target) {
+        let hasMap = {};
+        for (let i = 0; i < nums.length; i++) {
+            let completment = target - nums[i];
+            if (hasMap.hasOwnProperty(completment)) {
+                return [hasMap[completment], i];
             }
-        } else {
-            sum -= array[left];
-            left++;
+            hasMap[nums[i]] = i;
         }
+        return null;
+}
+
+console.log(twoSum([2,7,11,15],9))
+
+
+function twoSum1(nums,target){
+    let hasMap = {}
+    for(let element in nums){
+        let complement = target - nums[element]
+        if(hasMap.hasOwnProperty(complement)){
+            return [hasMap[complement],element]
+        }
+
+        hasMap[nums[element]] = element
     }
 }
 
-console.log(sumOfZero([3, 2, 3], 6));
-/**
- * 1 =>                lr                   sum 3 != 6
- * 2 =>                l   r                sum  5 != 6 
- * 3 =>                l      r            sum  44 != 5
- * 4 =.    l               r         sum 6 !== 5
- *  5=>       l            r         sum 
- 
- */
+console.log(twoSum1([2,7,11,15],9))
+
+
+// Now Solving the same question using the methods like map
+
+
+function twoSum2(nums,target){
+    let hasMap = new Map()
+    for(let i = 0 ; i < nums.length ; i++){
+        let complement = target -nums[i]
+        if(hasMap.has(complement)){
+            //return [hasMap.get(complement),i]
+        }
+        hasMap.set(nums[i],i)
+    }
+    console.log(hasMap);
+
+}
+
+console.log(twoSum2([2,7,11,15],9));
