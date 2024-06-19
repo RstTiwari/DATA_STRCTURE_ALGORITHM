@@ -17,27 +17,57 @@ function longestSubString(string) {
     let longest = "";
     for (let i = 0; i < string.length; i++) {
         if (!hasMap.has(string[i])) {
+            // if chr is not in the map adding it
             current += string[i];
             hasMap.set(string[i], i);
         } else {
             if (current.length > longest.length) {
                 longest = current;
             }
+            i = hasMap.get(string[i]);
             current = "";
             hasMap.clear();
         }
-
-        console.log(current, longest);
     }
     if (current.length > longest.length) {
         longest = current;
     }
-    console.log(longest, current);
     return longest.length;
 }
 
-// console.log(longestSubString("abcabcbb"));
-console.log(longestSubString("aab"));
+// console.log(longestSubString("dvdf"));
+console.log(
+    longestSubString(
+        "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~ abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~ abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~ abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~ abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~ abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOP"
+    )
+);
+
+// console.log(longestSubString("bbbbb"));
+
 /**
- * 1
+ *
  */
+
+function longestSubStringWithSlidingWindow(string) {
+    let hasMap = new Map();
+    let left = 0,
+        right = 0,
+        current = 0;
+    while (right < string.length) {
+        if (!hasMap.has(string[right])) {
+            hasMap.set(string[right], right);
+            current += 1;
+            right++;
+        } else {
+            current = 0;
+            hasMap.clear();
+            left++;
+        }
+    }
+    console.log(current);
+
+    return current;
+}
+
+console.log(longestSubStringWithSlidingWindow("dvdf"));
+console.log(longestSubStringWithSlidingWindow("bbbb"), "--");

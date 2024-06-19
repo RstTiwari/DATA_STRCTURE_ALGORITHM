@@ -254,7 +254,8 @@ print(list_a,'--')  #[-1, 10, 5, 10, 2, 3] --
 tup_a = ("rohit","tupes")  # normal method
 tup_b = tuple(("ROhit",9 , True))  # constructor method
 
-
+dic_c = {1:{"rohit":"rohit"},"rohu":1}
+print(dic_c[1])
 
 
 
