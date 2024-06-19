@@ -43,6 +43,7 @@ class Student extends Person {
             `My favrate subject are invloing and solving the ${subject}`
         );
     }
+    
     introduceSelf() {
         console.log(
             `Hi my name is ${this.name}  and i m studnet of batch ${this.year}`
@@ -61,3 +62,7 @@ mathSir.introduceSelf();
 /**ENCAPCULATION*/ 
 //===> if introduceSelf is polymorphism 
 // for Proffesor class  grade is encapsulation method and  teaches is encapsulated property
+
+
+
+//Understanding The OOPS CONCEPT FORM THE PROSPECTIVE OF THE REP SYSTEM DESIGN IN THE BACKEND
