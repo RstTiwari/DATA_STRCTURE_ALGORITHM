@@ -31,8 +31,8 @@ const fibonacciSeriesVar = (n, current = 0, next = 1, count = 0) => {
  */
 function validPalindrome(str) {}
 
-/**
- * 
+/*
+
  * You are given the heads of two sorted linked lists list1 and list2.
 
 Merge the two lists into one sorted list. The list should be made by splicing together the nodes of the first two lists.
@@ -66,3 +66,33 @@ var mergeTwoLists = function (list1, list2) {
 };
 
 console.log(mergeTwoLists([1, 2, 3, 4], [2, 3, 4]));
+
+/*
+Given  X is inter n N i power find the power X ration N
+*/
+
+/**
+ *
+ * @param {Number} X
+ * @param {Number} N
+ */
+function XpowerToN(X, N) {
+    // Write the base case for recusrion tha if N is less tahan equal to zero return 1
+    if (N <= 0) {
+        return 1;
+    }
+
+    // Managing if N value is less than 1 and Greater than 0
+    if (N > 0 && N < 1) {
+        return N * X;
+    }
+
+    if (N == 1) {
+        return X;
+    }
+
+    // Manging if N is  Equal to 1
+    return X * XpowerToN(X, N - 1);
+}
+
+console.log(XpowerToN(1000, 1));
