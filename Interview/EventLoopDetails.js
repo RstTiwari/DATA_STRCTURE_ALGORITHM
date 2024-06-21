@@ -13,3 +13,67 @@
  * however, Operating System scheduling or the running of other callbacks may delay them.
  */
 
+
+/**
+ *  Pending callbacks     ==> ECONNREFUSED  , ETIMEDOUT   EADDRINUSE
+ *  Any kind of system error occurs the system will wait to report this error ,
+ *  it will be passed into the Pending Callback.
+ * 
+ *  
+ * */ 
+
+/**
+ * Poll  => its has Poll phase  =(Check for I/O Events) and Check (Checks for setImmediate(event)) Phase  
+ *    Calculating how long it should block and poll for I/O, then
+      Processing events in the poll queue.
+ */
+
+      /// Exmple base on Poll fase
+
+     const fs = require("fs")
+
+      console.log("start")
+
+      setTimeout(() => {
+        console.log("set Time out has been scheduled");
+      }, 1000);
+
+      Promise.resolve().then(
+      console.log("Mictortask"),
+        fs.readFile("new.txt",(err,data)=>{
+          if(err){
+            console.log(err);
+          }
+          console.log("file read IO function");
+        })
+      )
+      
+      fs.readFile("new.txt",(err,data)=>{
+        if(err){
+          console.log(err);
+        }
+        console.log("file read IO function  1233");
+      })
+
+      setImmediate(()=>{
+        console.log("SetImmediate FFunction is Scheduled");
+      })    
+
+      process.nextTick(()=>{
+        console.log("tick")
+      })  
+   
+
+      console.log("stope");
+
+
+
+/**
+ * 
+ * check ==> it schedules anything with the setImmediate()
+ */
+
+
+/**
+ * close callbacks
+ */
