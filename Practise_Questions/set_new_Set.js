@@ -1,0 +1,7 @@
+const set = new Set()
+set.add(undefined)
+set.add(null)
+set.add("+0")
+set.add(null)
+console.log(set.has(null))
+console.log(set)
