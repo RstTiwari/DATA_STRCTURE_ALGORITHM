@@ -20,3 +20,16 @@ function foo() {
     };
 }
 console.log(foo()); // {message:"Rohit"}
+
+console.log("the first line"); // good to add semicolon here
+[1, 2, 3].forEach((item) => {
+    console.log(item);
+});
+console.log("ends here");
+
+console
+    .log("the first line") // error comes here
+    [(1, 2, 3)].forEach((item) => {
+        console.log(item);
+    });
+console.log("ends here");
