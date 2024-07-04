@@ -1,6 +1,7 @@
 const names:String[] = []
 names.push("rohit")
 console.log(names); ///
+
 // ReadOnly Array which can not be modified
 const readOnlyArray: readonly string[] = ["rohit"]
 //readOnlyArray.push() /// pussh  push does not exit on read only type
