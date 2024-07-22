@@ -38,3 +38,20 @@ function mergeSortedArray(nums1, m, nums2, n) {
 }
 
 console.log(mergeSortedArray([1, 2, 3, 0, 0, 0], 3, [2, 5, 6], 3));
+
+
+
+
+// Practising MergeSorted Array
+function mergeSortedArray2(num1,m,num2,n){
+ 
+    let p1 = m -1
+    let p2 = n -1
+    let p  = m + n -1
+    while (p1 <= 0  && p2 <= 0){
+        if(num1[p1] >  num2[p2]){
+            
+        }
+    }
+}
+console.log(mergeSortedArray2([1, 2, 3, 0, 0, 0], 3, [2, 5, 6], 3));
