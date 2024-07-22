@@ -15,7 +15,6 @@ function findTheTargetArray(nums,target){
         }
     }
     return subArray
-    console.timeEnd()
 }
 console.log(findTheTargetArray([2,3,1,2,4,3,6],7))
 
