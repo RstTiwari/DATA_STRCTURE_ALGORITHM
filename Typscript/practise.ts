@@ -110,6 +110,16 @@ function typscript(a: number, b: String, c?: number): number {
 console.log(typscript(2 ,"5"))
 
 
+function linearSearch(array: Array, value: Number): Number {
+    let start: Number = 0;
+    while (array.length >= start) {
+        if (array[start] === value) {
+            return start;
+        }
+    }
+    return -1;
+}
+console.log(linearSearch([2, 3, 4, 5], 2));
 
 
 
