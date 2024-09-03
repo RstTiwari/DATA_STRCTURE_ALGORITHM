@@ -25,12 +25,13 @@ function linearSearchFromBack(array, value) {
 }
 console.log(linearSearchFromBack([3, 5, 7, 9, 12, 3, 7, 9, 2], 3));
 
-// Lienar Search For sorrted Array
+// Linear Search For sorrted Array
 function BinarySearch(array, number) {
     let left = array[0];
     let right = array[array.length - 1];
     for (let i = left; i < array.length; i++) {
-        let median = Math.ceil(left + right) / 2;
+        let median = Math.floor((left + right) / 2);
+        
         if (array[median] === number) {
             return median;
         }
@@ -39,6 +40,7 @@ function BinarySearch(array, number) {
         } else {
             left = median = 1;
         }
+        median = Math.floor((left+right)/2)
     }
     return -1;
 }
