@@ -4,7 +4,6 @@ function bianarySearch(nums, target) {
     let m = Math.floor((e + s) / 2);
 
     while (nums[m] !== target) {
-        console.log(s, e, m);
         if (nums[m] < target) {
             e = m - 1;
         } else {
@@ -16,7 +15,9 @@ function bianarySearch(nums, target) {
     return m;
 }
 
-console.log(bianarySearch([1, 2, 3, 4, 5, 8, 9], 5));
+//console.log(bianarySearch([1, 2, 3, 4, 5, 8, 9], 5));
+
+
 
 //  [1, 2, 3, 4, 5, 8, 9]
 //   s        m        e
@@ -66,6 +67,42 @@ function medianOfTwoSortedArray(num1, num2) {
     return median;
 }
 
-console.log(medianOfTwoSortedArray([1, 2, 5, 15, 18], [2, 3, 6, 9, 10]));
+//console.log(medianOfTwoSortedArray([1,2], [3,4]))
+
+
 // take the the second num put it first nums by binary Search logic
 // then take median of the first array
+
+//4. Find First and Last Position of Element in Sorted Array
+/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number[]}
+ */
+var searchRange = function(nums, target) {
+    // Write Fucntion to check start side 
+    let output  =[-1,-1]
+    let start = 0
+    while(start < nums.length){
+        if(nums[start] === target){
+            output[0] = start
+            break;
+        }
+        start += 1
+    }
+
+    // Wrtie a fucntion to check form the back side
+    let end = nums.length -1
+    while (end > 0){
+
+        if(nums[end] === target){
+            output[1] = end
+            break;
+        }
+        end -= 1
+    }
+    return output
+    
+};
+
+console.log(searchRange([1,2,3,4,5,5,9],5))

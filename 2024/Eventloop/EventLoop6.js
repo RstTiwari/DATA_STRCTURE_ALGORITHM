@@ -1,7 +1,4 @@
 console.log("start");
-
-
-
 asyncFunc1();
 asyncFunc2();
 
@@ -27,9 +24,9 @@ async function asyncFunc1() {
       }, 0);
     });
     console.log("asyncFunc1 end");
-  }
+}
   
-  async function asyncFunc2() {
+async function asyncFunc2() {
     console.log("asyncFunc2 start");
     await new Promise(resolve => {
       console.log("asyncFunc2 await start");
@@ -39,11 +36,21 @@ async function asyncFunc1() {
       });
     });
     console.log("asyncFunc2 end");
-  }
+}
+
 console.log("end");
+
 //Start
-//end
+// asynFuncStart1
+// asynFunc1 await start1
+//asyn fucnt 2 start
+// async awiat stat2
+// end
 //nextTick
-// promise
-// asyu start 1
+// tiemout
+//proisme
+// asyncFunc1 timeout
+// "asyncFunc1 end"
+// asyuasyncFunc2  imdmee
 // asyn start 2
+// asyncFunc2 end
