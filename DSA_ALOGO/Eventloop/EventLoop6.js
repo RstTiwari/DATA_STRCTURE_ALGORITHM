@@ -3,38 +3,42 @@ asyncFunc1();
 asyncFunc2();
 
 process.nextTick(() => {
-  console.log("nextTick");
+    console.log("nextTick");
 });
 
 setTimeout(() => {
-  console.log("timeout");
+    console.log("timeout");
 }, 0);
 
-Promise.resolve().then(() => {
-  console.log("promise");
+ Promise.resolve().then(() => {
+    console.log("promise");
+  
 });
 
 async function asyncFunc1() {
     console.log("asyncFunc1 start");
-    await new Promise(resolve => {
-      console.log("asyncFunc1 await start");
-      setTimeout(() => {
-        console.log("asyncFunc1 timeout");
+    await new Promise((resolve) => {
+        console.log("asyncFunc1 await start");
+    
         resolve();
-      }, 0);
     });
+    setTimeout(() => {
+      console.log("asyncFunc1 timeout");
+  }, 0);
+
     console.log("asyncFunc1 end");
 }
-  
+
 async function asyncFunc2() {
     console.log("asyncFunc2 start");
-    await new Promise(resolve => {
-      console.log("asyncFunc2 await start");
-      setImmediate(() => {
-        console.log("asyncFunc2 immediate");
+    await new Promise((resolve) => {
+        console.log("asyncFunc2 await start");
         resolve();
-      });
+
     });
+    setImmediate(() => {
+      console.log("asyncFunc2 immediate");
+  });
     console.log("asyncFunc2 end");
 }
 
@@ -47,8 +51,9 @@ console.log("end");
 // async awiat stat2
 // end
 //nextTick
-// tiemout
 //proisme
+// tiemout
+
 // asyncFunc1 timeout
 // "asyncFunc1 end"
 // asyuasyncFunc2  imdmee
