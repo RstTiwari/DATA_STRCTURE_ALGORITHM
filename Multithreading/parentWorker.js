@@ -6,6 +6,8 @@ const {
     markAsUntransferable,
 } = require("worker_threads");
 const path = require("path");
+
+
 let sales_data = [
     {
         name: "The Texting Product",
@@ -25,21 +27,21 @@ let sales_data = [
     },
 ];
 
-const creatingWorkerThread = (data) => {
-    return new Promise((resolve, reject) => {
-        if (isMainThread) {
-            const worker = new Worker(path.join(__dirname, "childWorker.js"));
-            worker.postMessage({ type: "report", data });
-            worker.on("message", (report) => {
-                resolve(report);
-                worker.terminate();
-            });
-            worker.on("error", (error) => {
-                reject(error);
-            });
-        }
-    });
-};
+// const creatingWorkerThread = (data) => {
+//     return new Promise((resolve, reject) => {
+//         if (isMainThread) {
+//             const worker = new Worker(path.join(__dirname, "childWorker.js"));
+//             worker.postMessage({ type: "report", data });
+//             worker.on("message", (report) => {
+//                 resolve(report);
+//                 worker.terminate();
+//             });
+//             worker.on("error", (error) => {
+//                 reject(error);
+//             });
+//         }
+//     });
+// };
 
 const creatingWorkerThread2 = (data) => {
     return new Promise((resolve, reject) => {
@@ -49,7 +51,7 @@ const creatingWorkerThread2 = (data) => {
             };
             markAsUntransferable(env_data, "==");
             setEnvironmentData("env", env_data);
-            let worker = new Worker(path.join(__dirname, "childWorker.js")); // calling the other child thread 
+            let worker = new Worker(path.join(__dirname, "childWorker.js")); // calling the other child thread
             worker.postMessage({ type: "report", data: data });
             worker.on("message", (report) => {
                 resolve(report);
