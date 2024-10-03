@@ -1,7 +1,7 @@
 const {
     Worker,
     isMainThread,
-    parentPort  ,
+    parentPort,
     getEnvironmentData,
     setEnvironmentData,
 } = require("node:worker_threads");
@@ -29,10 +29,10 @@ if (isMainThread) {
         }
     });
 } else {
-    childFunction();   
-    for(let i  = 1 ;  i < 5; i++){
-     parentPort.postMessage(`message coming form thee ${i} child threead`)
-    } 
+    childFunction();
+    for (let i = 1; i < 5; i++) {
+        parentPort.postMessage(`message coming form thee ${i} child threead`);
+    }
 }
 
 function childFunction() {
