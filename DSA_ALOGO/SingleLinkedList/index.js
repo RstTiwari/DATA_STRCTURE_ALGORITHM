@@ -26,21 +26,65 @@ class SingleLinkedList {
     // Push method for inserting values in singleLinkedList
     push(val) {
         let newNode = new Node(val);
-        if (this.length > 0) {
-            this.tail.next = newNode;
-            this.tail = newNode;
-        } else {
+        if (!this.head) {
             this.head = newNode;
+            this.tail = this.head;
+        } else {
+            this.tail.next = newNode;
             this.tail = newNode;
         }
         this.length++;
+        return this;
+    }
+    pop() {
+        if (!this.head) return undefined;
+        let current = this.head;
+        let newTail = current;
+        while (current.next) {
+            newTail = current;
+            current = current.next;
+        }
+        this.tail = newTail;
+        this.tail.next = null;
+        this.length--;
+        if (this.length === 0) {
+            this.head = null;
+            this.tail = null;
+        }
+        return current;
+    }
+    shift(val) {
+        let newNode = new Node(val);
+        if (!this.head) {
+            this.head = newNode;
+            this.tail = this.head;
+        } else {
+            let curHead = this.head;
+            this.head = newNode;
+            this.head.next = curHead;
+        }
+        this.length++;
+        return this;
+    }
+    unshift(){
+       if(!this.head){
+         return undefined
+       }else{
+       
+       }
+    }
+    transverse() {
+        let current = this.head;
+        while (current.next) {
+            let prv = current;
+            current = current.next;
+            console.log(prv);
+        }
     }
 }
 
 let singleList = new SingleLinkedList();
-singleList.push("Rohit");
-singleList.push("Tiwari");
-singleList.push("story");
-singleList.push("story1");
-
-console.log(singleList.head.next.next, "===");
+let first = singleList.shift("Rohit");
+let second = singleList.shift("Tiwari");
+let third = singleList.shift("story");
+console.log( "===",singleList);
