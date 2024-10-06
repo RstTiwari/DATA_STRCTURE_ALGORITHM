@@ -19,8 +19,6 @@ MyLinkedList.prototype.get = function (index) {
     let cur = this.head;
 
     for (let i = 0; i <= index; i++) {
-        console.log(val, cur, "===");
-
         val = cur.val;
         cur = cur.next;
     }
@@ -72,19 +70,41 @@ MyLinkedList.prototype.addAtTail = function (val) {
 MyLinkedList.prototype.addAtIndex = function (index, val) {
     let newNode = new Node(val);
     if (index > this.length) return null;
-    let cur = this.head;
-    for (let i = 0; i < index; i++) {
-        console.log(cur, `${i} ittration`);
-        cur = cur.next;
-        console.log(cur, `${i} ittration`);
+    if (index === 0) {
+        newNode.next = this.head;
+        this.head = newNode;
+    } else {
+        let cur = this.head;
+        for (let i = 0; i < index - 1; i++) {
+            cur = cur.next;
+        }
+        cur.next = newNode;
+        newNode.next = cur.next;
     }
+    this.length++;
+    return newNode.val;
 };
 
 /**
  * @param {number} index
  * @return {void}
  */
-MyLinkedList.prototype.deleteAtIndex = function (index) {};
+MyLinkedList.prototype.deleteAtIndex = function (index) {
+    if (index < 0 || index > this.length - 1) return null;
+    let cur = this.head;
+    if (index === 0) {
+        this.head = cur.next;
+    } else {
+        let pre = cur;
+        for (let i = 0; i < index - 1; i++) {
+            pre = cur;
+            cur = cur.next;
+        }
+        pre.next = cur.next;
+    }
+    this.length--;
+    return cur.val;
+};
 
 // Your MyLinkedList object will be instantiated and called as such:
 let val = 12;
@@ -93,10 +113,15 @@ obj.addAtHead(100);
 obj.addAtHead(10);
 obj.addAtTail(50);
 obj.addAtTail(30);
-// var param_1 = obj.get(4);
-let param_2 = obj.addAtIndex(2, 10);
+console.log(obj);
+let param_2 = obj.addAtIndex(2, "rohit");
+console.log(obj, "===");
 
-console.log(param_2, "=====");
+var param_1 = obj.get(2);
+let param_3 = obj.deleteAtIndex(2);
+
+console.log(param_2, "=====", param_1, param_3);
+console.log(obj, "===");
 
 // obj.addAtIndex(index, val);
 // obj.deleteAtIndex(index);
