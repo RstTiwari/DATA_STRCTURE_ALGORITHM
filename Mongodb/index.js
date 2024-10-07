@@ -1,7 +1,6 @@
 import { MongoClient } from "mongodb";
 
 // Connection URL
-const url = "mongodb+srv://rohittiwarihkb:hkbMasterAdmin@autobot.iics9sj.mongodb.net/";
 
 // Connect to the MongoDB cluster
 async function main() {

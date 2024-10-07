@@ -49,6 +49,7 @@ MyLinkedList.prototype.addAtHead = function (val) {
  * @param {number} val
  * @return {void}
  */
+
 MyLinkedList.prototype.addAtTail = function (val) {
     let newNode = new Node(val);
     if (!this.head) {
@@ -67,20 +68,19 @@ MyLinkedList.prototype.addAtTail = function (val) {
  * @param {number} val
  * @return {void}
  */
+
 MyLinkedList.prototype.addAtIndex = function (index, val) {
+    if (index > this.length || index < 0) return null;
+    if (index === 0) return this.addAtHead(val);
     let newNode = new Node(val);
-    if (index > this.length) return null;
-    if (index === 0) {
-        newNode.next = this.head;
-        this.head = newNode;
-    } else {
-        let cur = this.head;
-        for (let i = 0; i < index - 1; i++) {
-            cur = cur.next;
-        }
-        cur.next = newNode;
-        newNode.next = cur.next;
+    let cur = this.head;
+    for (let i = 0; i < index - 1; i++) {
+        cur = cur.next;
     }
+
+    cur.next = newNode;
+    newNode.next = cur.next;
+
     this.length++;
     return newNode.val;
 };
@@ -90,20 +90,37 @@ MyLinkedList.prototype.addAtIndex = function (index, val) {
  * @return {void}
  */
 MyLinkedList.prototype.deleteAtIndex = function (index) {
-    if (index < 0 || index > this.length - 1) return null;
+    if (index < 0 || index >= this.length) return null; // Check for invalid index
+
     let cur = this.head;
+
+    // Deleting the first node (head)
     if (index === 0) {
-        this.head = cur.next;
+        this.head = this.head.next; // Update the head to the next node
+
+        // If the list is now empty, set the tail to null
+        if (this.length === 1) {
+            this.tail = null;
+        }
     } else {
-        let pre = cur;
-        for (let i = 0; i < index - 1; i++) {
-            pre = cur;
+        let prev = null;
+        // Traverse to the node just before the index
+        for (let i = 0; i < index; i++) {
+            prev = cur;
             cur = cur.next;
         }
-        pre.next = cur.next;
+
+        // Link the previous node to the next node, skipping the node at `index`
+        prev.next = cur.next;
+
+        // If we're deleting the last node, update the tail
+        if (cur === this.tail) {
+            this.tail = prev;
+        }
     }
+
     this.length--;
-    return cur.val;
+    return cur.val; // Return the value of the deleted node
 };
 
 // Your MyLinkedList object will be instantiated and called as such:
@@ -113,15 +130,8 @@ obj.addAtHead(100);
 obj.addAtHead(10);
 obj.addAtTail(50);
 obj.addAtTail(30);
-console.log(obj);
 let param_2 = obj.addAtIndex(2, "rohit");
-console.log(obj, "===");
 
-var param_1 = obj.get(2);
 let param_3 = obj.deleteAtIndex(2);
-
-console.log(param_2, "=====", param_1, param_3);
-console.log(obj, "===");
-
-// obj.addAtIndex(index, val);
-// obj.deleteAtIndex(index);
+var param_1 = obj.get(2);
+console.log(param_1);

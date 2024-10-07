@@ -83,6 +83,7 @@ class SingleLinkedList {
     }
 }
 
+
 let singleList = new SingleLinkedList();
 let first = singleList.shift("Rohit");
 let second = singleList.shift("Tiwari");
