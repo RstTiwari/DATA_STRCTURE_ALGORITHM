@@ -1,10 +1,16 @@
 const express = require("express");
+<<<<<<< HEAD
 const dotenv = require("dotenv")
+=======
+>>>>>>> 21df6d51f367a9e7807af8c062db062c2728e512
 const cors = require("cors");
 const app = express();
 app.use(cors());
 const port = 3003;
+<<<<<<< HEAD
 dotenv.config()
+=======
+>>>>>>> 21df6d51f367a9e7807af8c062db062c2728e512
 
 // here will implement middleware
 
