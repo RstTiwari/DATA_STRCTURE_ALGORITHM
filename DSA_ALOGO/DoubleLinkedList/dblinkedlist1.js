@@ -59,6 +59,7 @@ DBLinkedList.prototype.get = function (index) {
  * @param {Number} val
  * @param {Number} index
  */
+
 DBLinkedList.prototype.set = function (index, val) {
     if (index < 0 || index >= this.length || this.length === 0) return null;
     // get the value at the given index point
