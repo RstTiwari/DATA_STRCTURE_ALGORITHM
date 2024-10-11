@@ -77,16 +77,18 @@ DBLinkedList.prototype.set = function (index, val) {
  * @param {Number} index
  */
 
+
 DBLinkedList.prototype.deleteAt = function (index) {
     if (index < 0 || index >= this.length || this.length === 0) return null;
     let i = 0;
     let cur = this.head;
-    let pre = this.head.pre;
     while (i < index) {
         cur = cur.next;
-        pre = cur.pre;
+        i++;
     }
-    console.log(cur, pre);
+    let pre = cur.pre;
+    pre.next = cur.next
+    
 };
 
 let obj = new DBLinkedList();
@@ -97,7 +99,9 @@ obj.push(12);
 obj.push(13);
 obj.push(14);
 
+
 let value = obj.set(3, 15);
-let value2 = obj.get(5);
-obj.deleteAt(2)
-console.log(value2);
+obj.deleteAt(2);
+let value2 = obj.get(2);
+
+console.log(value2,obj);
