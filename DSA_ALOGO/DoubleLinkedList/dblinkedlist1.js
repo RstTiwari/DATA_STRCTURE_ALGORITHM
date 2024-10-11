@@ -1,18 +1,52 @@
-// let work on  building the next level
-
-function Node(val) {
-    this.val = val;
-    this.next = null;
-    this.pre = null;
-}
-
-function DBLinkedList() {
+var MyLinkedList = function () {
     this.head = null;
     this.tail = null;
     this.length = 0;
-}
+};
 
-DBLinkedList.prototype.push = function (val) {
+var Node = function (val) {
+    this.val = val;
+    this.next = null;
+    this.pre = null;
+};
+
+/** 
+ * @param {number} index
+ * @return {number}
+ */
+MyLinkedList.prototype.get = function(index) {
+    if (index < 0 || index >= this.length || this.length === 0) return -1;
+    let i = 0;
+    let cur = this.head;
+    while (i < index) {
+        cur = cur.next;
+        i++;
+    }
+    return cur.val;
+};
+
+/** 
+ * @param {number} val
+ * @return {void}
+ */
+MyLinkedList.prototype.addAtHead = function(val) {
+    let newNode = new Node(val);
+    if (this.length === 0) {
+        this.head = newNode;
+        this.tail = newNode;
+    } else {
+        newNode.next = this.head;
+        this.head.pre = newNode;
+        this.head = newNode;
+    }
+    this.length++;
+};
+
+/** 
+ * @param {number} val
+ * @return {void}
+ */
+MyLinkedList.prototype.addAtTail = function(val) {
     let newNode = new Node(val);
     if (this.length === 0) {
         this.head = newNode;
@@ -23,85 +57,95 @@ DBLinkedList.prototype.push = function (val) {
         this.tail = newNode;
     }
     this.length++;
-    return this;
 };
 
-DBLinkedList.prototype.pop = function () {
-    if (this.length === 0) return null;
-    let poppedValue = this.tail.val;
-    if (this.length === 1) {
-        this.head = null;
-        this.tail = null;
-    }
-    this.tail = this.tail.pre;
-    this.tail.next = null;
-    this.length--;
-    return poppedValue;
-};
-
-/**
-@param index num
-*/
-
-DBLinkedList.prototype.get = function (index) {
-    if (index < 0 || index >= this.length || this.length === 0) return null;
-    let i = 0;
-    let cur = this.head;
-    while (i < index) {
-        cur = cur.next;
-        i++;
-    }
-    return cur.val;
-};
-
-/**
- *
- * @param {Number} val
- * @param {Number} index
+/** 
+ * @param {number} index 
+ * @param {number} val
+ * @return {void}
  */
-
-DBLinkedList.prototype.set = function (index, val) {
-    if (index < 0 || index >= this.length || this.length === 0) return null;
-    // get the value at the given index point
-    let i = 0;
-    let cur = this.head;
-    while (i < index) {
-        cur = cur.next;
-        i++;
-    }
-    cur.val = val;
-    return cur;
-};
-
-/*
- * @param {Number} index
- */
-
-
-DBLinkedList.prototype.deleteAt = function (index) {
-    if (index < 0 || index >= this.length || this.length === 0) return null;
-    let i = 0;
-    let cur = this.head;
-    while (i < index) {
-        cur = cur.next;
-        i++;
-    }
-    let pre = cur.pre;
-    pre.next = cur.next
+MyLinkedList.prototype.addAtIndex = function(index, val) {
+    if (index < 0 || index > this.length) return;
     
+    if (index === 0) {
+        this.addAtHead(val);
+        return;
+    }
+
+    if (index === this.length) {
+        this.addAtTail(val);
+        return;
+    }
+
+    let i = 0;
+    let newNode = new Node(val);
+    let cur = this.head;
+    
+    // Traverse to the node before the target index
+    while (i < index - 1) {
+        cur = cur.next;
+        i++;
+    }
+
+    newNode.next = cur.next;
+    cur.next.pre = newNode;
+    cur.next = newNode;
+    newNode.pre = cur;
+
+    this.length++;
 };
 
-let obj = new DBLinkedList();
+/** 
+ * @param {number} index
+ * @return {void}
+ */
+MyLinkedList.prototype.deleteAtIndex = function(index) {
+    if (index < 0 || index >= this.length) return;
 
-obj.push(10);
-obj.push(11);
-obj.push(12);
-obj.push(13);
-obj.push(14);
+    if (index === 0) {
+        let oldHead = this.head;
+        this.head = oldHead.next;
+        if (this.head) {
+            this.head.pre = null;
+        } else {
+            this.tail = null;
+        }
+        this.length--;
+        return;
+    }
 
+    if (index === this.length - 1) {
+        let oldTail = this.tail;
+        this.tail = oldTail.pre;
+        if (this.tail) {
+            this.tail.next = null;
+        }
+        this.length--;
+        return;
+    }
 
-let value = obj.set(3, 15);
-obj.deleteAt(2);
-let value2 = obj.get(2);
+    let i = 0;
+    let cur = this.head;
+    while (i < index) {
+        cur = cur.next;
+        i++;
+    }
 
-console.log(value2,obj);
+    let pre = cur.pre;
+    let next = cur.next;
+    pre.next = next;
+    if (next) {
+        next.pre = pre;
+    }
+    this.length--;
+};
+
+/** 
+ * Your MyLinkedList object will be instantiated and called as such:
+ * var obj = new MyLinkedList()
+ * var param_1 = obj.get(index)
+ * obj.addAtHead(val)
+ * obj.addAtTail(val)
+ * obj.addAtIndex(index,val)
+ * obj.deleteAtIndex(index)
+ */
