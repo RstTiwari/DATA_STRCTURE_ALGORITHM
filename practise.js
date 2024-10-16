@@ -1,1 +1,6 @@
-let data = collection.find({}).sort({ amount: -1 }).skip(1).limit(1);
+let user 
+let post 
+
+    
+let postData = user.find({age:{$gt:30}}).select({age:1}).skip(pageNo).limit(50).lean();
+

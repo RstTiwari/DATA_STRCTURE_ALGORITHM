@@ -72,11 +72,11 @@ CustomStack.prototype.increment = function (k, val) {
  * obj.increment(k,val)
  */
 
-var obj = new CustomStack(4)
+var obj = new CustomStack(4);
 
 obj.push(10);
 obj.push(20);
 obj.push(30);
 obj.push(40);
 
-obj.increment(3,100)
+obj.increment(3, 100);

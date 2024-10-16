@@ -1,62 +1,28 @@
 const express = require("express");
-<<<<<<< HEAD
-const dotenv = require("dotenv")
-=======
->>>>>>> 21df6d51f367a9e7807af8c062db062c2728e512
 const cors = require("cors");
-const app = express();
-app.use(cors());
-const port = 3003;
-<<<<<<< HEAD
-dotenv.config()
-=======
->>>>>>> 21df6d51f367a9e7807af8c062db062c2728e512
 
-// here will implement middleware
+let app = express();
+app.use(cors);
 
-app.post("/home", (req, res) => {
-    res.send("the server is running perfectly over there");
-    res.setHeader("X-Foo", "bar");
-});
-
-app.post("/products", async (req, res) => {
+app.get("/read", (req, res, next) => {
     try {
-        const token = req.headers;
+        let id = req.params;
 
+        if (!id) {
+            throw new Error("Invalid Payload");
+        }
+        let data = [];
+        // will fetch data from the database service
         let response = {
             success: 1,
-            data: [],
+            result: data,
         };
-        res.send(response);
+        res.status(200).json(response);
     } catch (error) {
-        console.error(error);
-        let response = {
-            success: 0,
-            message: error.message,
-        };
-        res.send(response);
-    }
-});
-app.post("/list", async (req, res) => {
-    try {
-        let headers = req.headers;
-        console.log(headers);
-
-        let response = {
-            success: 1,
-            data: [],
-        };
-        res.send(response);
-    } catch (error) {
-        console.error(error);
-        let response = {
-            success: 0,
-            message: error.message,
-        };
-        res.send(response);
+        next(error); // will design custom next function
     }
 });
 
-app.listen(port, () => {
-    console.log(`the server is runing on the prot ${port}`);
+app.listen(5000,()=>{
+   console.log("Server is running")
 });
