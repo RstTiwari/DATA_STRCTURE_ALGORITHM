@@ -36,13 +36,13 @@ Stack.prototype.pop = function () {
     }
 };
 
-let stack = new Stack()
-stack.push("Start learning")
-stack.push("then practice the old questions")
-stack.push("Revise practice the old questions")
-stack.push("Still the last line in the quew")
-let last = stack.pop()
- stack.pop()
- stack.pop()
-console.log(stack)
-console.log(last)
+let stack = new Stack();
+stack.push("Start learning");
+stack.push("then practice the old questions");
+stack.push("Revise practice the old questions");
+stack.push("Still the last line in the que");
+let last = stack.pop();
+stack.pop();
+stack.pop();
+console.log(stack);
+console.log(last);
