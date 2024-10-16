@@ -4,11 +4,13 @@ var MyLinkedList = function () {
     this.length = 0;
 };
 
+
 var Node = function (val) {
     this.val = val;
     this.next = null;
     this.pre = null;
 };
+
 
 /** 
  * @param {number} index
