@@ -1,35 +1,64 @@
 import { MongoClient } from "mongodb";
+import { config } from "dotenv";
+import mongoose from "mongoose";
 
-// Connection URL
+config()
+let url = process.env.MDURL
 
-// Connect to the MongoDB cluster
+
 async function main() {
-  const client = new MongoClient(url, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  });
+  // const client = new MongoClient(url, {
+  //   useNewUrlParser: true,
+  //   useUnifiedTopology: true,
+  // });
+    await mongoose.connect(url, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+    });
 
   try {
       // Connect to the MongoDB server
-      await client.connect();
-      console.log("Connected to MongoDB");
+      //   await client.connect();
+      //   console.log("Connected to MongoDB");
 
-      // Select the database
-      const db = client.db("test"); // Replace with your database name
+      //   // Select the database
+      //   const db = client.db("ftms"); // Replace with your database name
+      //  let Product = await db.collection("Product").find({})
+      // console.log(Product,"---")
 
-      // Create a new collection
-      let newCollection = await db.command({
-          create: "betView",
-          viewOn: "betlists",
-          pipeline: [{ $match:{} }],
-      });
+      let db = mongoose.connection.db;
 
-      console.log("Collection 'betlists' created:", newCollection);
+      // Calculating the total Order Quantity
+      let totalOrderQuantity = await db.collection("orders").aggregate([
+          //Let write the first stage Match
+          {
+              $match: { size: "medium" },
+          },
+          // this is the second stage of Aggregating
+          {
+              $group: { _id: "$name", totalQty: { $sum: "$quantity" } },
+          },
+      ]);
+      console.log(await totalOrderQuantity.toArray());
+
+      //Calculate the total orderValue and Avg Order Quantity
+      let avgOrderQuantity = await db.collection("orders").aggregate([
+          //Let write the first stage Match
+          {
+              $match: {
+                  date: {
+                      $gte: new Date("2020-01-30"),
+                      $lt: new Date("2022-01-30"),
+                  },
+              },
+          },
+      ]);
+      console.log(await avgOrderQuantity.toArray());
   } catch (err) {
     console.error("Error creating collection:", err);
   } finally {
     // Close the connection
-    await client.close();
+    // await client.close();
   }
 }
 
