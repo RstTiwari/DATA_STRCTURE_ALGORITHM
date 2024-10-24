@@ -1,54 +1,40 @@
-const express = require("express");
-const cors = require("cors");
-const app = express();
-app.use(cors());
-const port = 3003;
+import express from "express"
+import cors from "cors"
+import {config} from "dotenv"
 
-// here will implement middleware
+let app = express();
+app.use(cors);
+config()
 
-app.post("/home", (req, res) => {
-    res.send("the server is running perfectly over there");
-    res.setHeader("X-Foo", "bar");
-});
+// Ensure URL is read correctly
+const url = process.env.MDURL;
+if (!url) {
+    console.error("Error: MDURL is not defined. Please check your .env file.");
+    process.exit(1);
+}
 
-app.post("/products", async (req, res) => {
+console.log("MongoDB URL:", url);
+
+
+app.get("/read", (req, res, next) => {
     try {
-        const token = req.headers;
+        let id = req.params;
 
+        if (!id) {
+            throw new Error("Invalid Payload");
+        }
+        let data = [];
+        // will fetch data from the database service
         let response = {
             success: 1,
-            data: [],
+            result: data,
         };
-        res.send(response);
+        res.status(200).json(response);
     } catch (error) {
-        console.error(error);
-        let response = {
-            success: 0,
-            message: error.message,
-        };
-        res.send(response);
-    }
-});
-app.post("/list", async (req, res) => {
-    try {
-        let headers = req.headers;
-        console.log(headers);
-
-        let response = {
-            success: 1,
-            data: [],
-        };
-        res.send(response);
-    } catch (error) {
-        console.error(error);
-        let response = {
-            success: 0,
-            message: error.message,
-        };
-        res.send(response);
+        next(error); // will design custom next function
     }
 });
 
-app.listen(port, () => {
-    console.log(`the server is runing on the prot ${port}`);
+app.listen(5000,()=>{
+   console.log("Server is running")
 });

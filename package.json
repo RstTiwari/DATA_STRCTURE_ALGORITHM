@@ -2,6 +2,7 @@
   "name": "master_js_in_30_days",
   "version": "1.0.0",
   "description": "",
+   "type": "module",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -12,9 +13,14 @@
   "dependencies": {
     "axios": "^1.7.7",
     "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "env": "^0.0.2",
     "express": "^4.18.2",
     "faker": "^6.6.6",
-    "loadash": "^1.0.0"
+    "loadash": "^1.0.0",
+    "mongodb": "^6.9.0",
+    "mongoose": "^8.7.0",
+    "mongoosh": "^0.0.7"
   },
   "devDependencies": {
     "typescript": "^5.4.3"
