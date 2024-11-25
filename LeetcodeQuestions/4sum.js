@@ -45,7 +45,7 @@ function sumOfFourBetter(nums, target) {
         let fourth = target - sum;
         if (temSet.has(fourth)) {
           let tempArray = [nums[i], nums[j], nums[k], fourth];
-            tempArray.sort((a, b) => a - b);
+          tempArray.sort((a, b) => a - b);
           set.add(tempArray.join(","));
         }
         temSet.add(fourth);
@@ -60,3 +60,26 @@ function sumOfFourBetter(nums, target) {
 // console.log(sumOfFourBetter([1, 0, -1, 0, -2, 2], 0));
 // console.log(sumOfFourBetter([2, 2, 2, 2, 2], 8))
 console.log(sumOfFourBetter([1, 0, -1, 0, -2, 2],0));
+
+function sumOfFourOptimal(nums, target) {
+  nums.sort((a, b) => a - b);
+  let res = [];
+
+  // we need the next three values in the target
+  for (let i = 0; i < nums.length - 3; i++) {
+    // let skip the same value word
+    if (i > 0 && nums[i] === nums[i - 1]) {
+      continue;
+    }
+
+    // let loop to find unique third value
+    for (let j = i + 1; j < nums.length - 2; j++) {
+      if (j > i + 1 && nums[j] === nums[j - 1]) {
+        continue;
+      }
+    }
+
+    // now we will find the unique last two digit to solve
+    
+  }
+}
