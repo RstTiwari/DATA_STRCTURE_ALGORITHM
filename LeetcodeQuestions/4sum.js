@@ -37,7 +37,6 @@ function sumOfFourBetter(nums, target) {
   let set = new Set();
   for (let i = 0; i < n; i++) {
     for (let j = i; j < n; j++) {
-    
       let temSet = new Set();
       for (let k = j; k < n; k++) {
         sum = nums[i] + nums[j];
@@ -59,7 +58,7 @@ function sumOfFourBetter(nums, target) {
 
 // console.log(sumOfFourBetter([1, 0, -1, 0, -2, 2], 0));
 // console.log(sumOfFourBetter([2, 2, 2, 2, 2], 8))
-console.log(sumOfFourBetter([1, 0, -1, 0, -2, 2],0));
+//console.log(sumOfFourBetter([1, 0, -1, 0, -2, 2], 0));
 
 function sumOfFourOptimal(nums, target) {
   nums.sort((a, b) => a - b);
@@ -77,9 +76,34 @@ function sumOfFourOptimal(nums, target) {
       if (j > i + 1 && nums[j] === nums[j - 1]) {
         continue;
       }
+      let begin = j + 1;
+      let end = nums.length - 1;
+      while (begin < end) {
+        let sum = nums[i] + nums[j] + nums[begin] + nums[end];
+        if (sum === target) {
+          res.push([nums[i], nums[j], nums[begin], nums[end]]);
+          // we got the the first array we have to check for the duplicates for the las two values also
+          while (begin < end && nums[begin] === nums[begin + 1]) {
+            begin++;
+          }
+
+          while (begin < end && nums[end] === nums[end - 1]) {
+            end--;
+          }
+          begin++;
+          end--;
+        } else if (sum < target) {
+          begin++;
+        } else {
+          end--;
+        }
+      }
     }
 
     // now we will find the unique last two digit to solve
-    
   }
+  return res;
 }
+
+console.log(sumOfFourOptimal([1, 0, -1, 0, -2, 2], 0));
+// [-2,-1,0,0,1,2]
