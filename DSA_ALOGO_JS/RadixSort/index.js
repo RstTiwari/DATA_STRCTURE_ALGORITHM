@@ -2,16 +2,7 @@ function getDigit(num, i) {
     return Math.floor(Math.abs(num) / Math.pow(10, i)) % 10;
 }
 
-// console.log(getDigit(47474,1))
 
-// function getDigit(num, i) {
-//     if (i > num.length - 1) {
-//         return null;
-//     }
-//     let stringNum = num.toString();
-//     let pos = stringNum.length - 1 - i;
-//     return Number(stringNum[pos]);
-// }
 
 function countDigit(num) {
     return num.toString().length;
