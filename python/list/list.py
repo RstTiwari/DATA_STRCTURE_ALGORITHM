@@ -65,3 +65,22 @@ matrix1 = [
 transpose1 = []
 
 print([[row[i]  for row in matrix1] for i in range(4)])
+
+
+
+#using list a stack  LIFO Last in First
+stack = [ 2,4,5,6]
+stack.append(6)
+print(stack)
+last = stack.pop()
+print(last,stack)
+
+
+#Using Lists as Queues first-in, first-out
+from collections import deque
+queue = deque(["Eric" ,"John","Michle"])
+queue.append("Rohit")
+first = queue.popleft()
+print(first)
+second  = queue.popleft()
+print(second)
