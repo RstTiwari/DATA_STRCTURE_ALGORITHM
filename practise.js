@@ -1,30 +1,7 @@
-function nonReptetive(text) {
-    let obj = new Map();
-    for (let i = 0; i < text.length; i++) {
-        if (obj.has(text[i])) {
-            obj.set(text[i], obj.get(text[i]) + 1);
-        } else {
-            obj.set(text[i], 1);
-        }
-    }
 
-    // now getting the value has cout of one
-    for (let [key, value] of obj) {
-        if (value === 1) {
-            return key
-        }
-    }
+let array = []
+for (let i = 1 ; i <=10 ; i ++){
+    array.push(i**2)
 }
 
-console.log(nonReptetive("aaabbcdde"));
-
-let data = sallery
-    .find({
-        $group: {
-            _id: "sallery",
-        },
-    })
-    .sort({ sallery: -1 })
-    .skip(2).limit(1);
-
-
+console.log(array)
