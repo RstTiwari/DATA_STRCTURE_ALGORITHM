@@ -59,6 +59,9 @@ def better_solution(nums):
             nums[high] ,nums[mid] = nums[mid] ,nums[high]
             high -=1
     return nums
+
+# Time = O(n)  where n is numbers of array
+
             
 
 
