@@ -39,7 +39,9 @@ function mergeSort(array) {
     let right = mergeSort(array.slice(mid));
     return mergingTwoSortedArray(left, right);
 }
+
 // console.log(mergeSort([2, 4, 1, 3, 6, 4]));
+
 /**
  * @param {number[]} nums
  * @return {number[]}
