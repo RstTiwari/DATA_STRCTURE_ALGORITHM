@@ -43,6 +43,7 @@ def optimal_solution(nums):
 
 # Time = n^2   where n is numbers of array
 
+#Dutch Flag  algorithm
 def better_solution(nums):
     low = 0
     high = len(nums) - 1
