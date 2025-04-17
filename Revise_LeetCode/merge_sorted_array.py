@@ -48,7 +48,7 @@ def merge_sorted_array_optimal(nums1: list[int], nums2: list[int], m: int,n: int
     nums1.sort()
     nums2.sort()
     for i in range(m,m+n):
-        nums1[i] = nums2
+        nums1[i] = nums2 
     print(nums1,nums2)
 
 

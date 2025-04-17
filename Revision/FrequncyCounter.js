@@ -60,9 +60,10 @@ function toSum(array, tar) {
 }
 console.log(toSum([3, 2, 8, 41, 3, 3], 5));
 
-/**
- * Takes two array and i have to find the missing value from the both the array
- */
+/*
+* Takes two array and i have to find the missing value from the both the array
+*/
+
 function findTheMissingElement(array1, array2) {
     const obj1 = {};
     const obj2 = {};

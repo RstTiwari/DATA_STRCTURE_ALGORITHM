@@ -1,5 +1,7 @@
   // Theses are the Following Phases of EventLoops in Nodejs
+  // visit to this link for more details
 
+let link = "https://www.builder.io/blog/visual-guide-to-nodejs-event-loop"
   
 /**
    *Timers   => Pending CallBacks  => idle Prepare => poll => check => close Callbacks
@@ -28,7 +30,7 @@
       Processing events in the poll queue.
  */
 
-      /// Exmple base on Poll fase
+      // Example base on Poll phase
 
      const fs = require("fs")
 
