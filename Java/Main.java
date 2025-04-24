@@ -1,4 +1,3 @@
-import java.lang.reflect.Type;
 
 public class Main {
     public static void main(String[] args) {
@@ -99,7 +98,73 @@ public class Main {
         System.out.println(newCarnage);
         String formFeed = "decide the form feed\f of text";
         System.out.println(formFeed);
+        System.out.println(11 <= 10);
+        int num1 = 20;
+        
+        if (num1 <= 11) {
+            System.out.println("true");
+        } else if (num1 > 10) {
+            System.out.println("else");
+        } else {
+            System.out.println("false");
+        }
+        String  isRight = (num1 >= 10) ? "true":"false";
+        String name1 = "";
 
+        // Switch Expression
+        switch (isRight) {
+            case "true":
+                name1= "rohit";
+                break;
+            case "false":
+                name1 ="Durgesh";
+            default:
+                break;
+        }
+
+        while (true) {
+            System.out.println("hello");
+            break;
+        }
+
+        for (int i = 0; i < 129; i++) {
+            System.out.println(i);
+        }
+
+        // array in java
+        String[] cars = { "bmw", "valo", "tata", "tata" };
+        for (int i = 0; i < cars.length; i++) {
+            System.out.println(cars[i]);
+        }
+
+        for (String i :cars){
+            System.out.println(i);
+        }
+        int[] ages = {10,30 ,20,23,45,78 };
+        float avg ,sum = 0;
+        int length = ages.length;
+        for (int i : ages){
+            System.out.println(i);
+            sum += i;
+        }
+        avg = sum/length;
+        System.out.println(Math.ceil(avg));
+
+        // multidimensional array
+        int[][] myNumber = { {1, 2,4, 3}, {5, 6, 7} };
+        for(int i = 0 ; i < myNumber.length; i++){
+            for(int j = 0 ; j < myNumber[i].length; j++){
+                System.out.println(myNumber[i][j]);
+
+            }
+
+        }
+        for (int[] row : myNumber) {
+            for (int i : row) {
+                System.out.println(i);
+            }
+        }
 
     }
+
 }
