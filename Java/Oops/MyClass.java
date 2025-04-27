@@ -2,8 +2,6 @@ package Oops;
 
 import Oops.Encapsulation.Encapsuation;
 import Oops.Inheritance.Inheritance;
-import Oops.Polymorphism.Shape;
-
 public class MyClass {
 
     public static void main(String[] args) {
@@ -38,11 +36,14 @@ public class MyClass {
         encapusulation.setName("Rakesh");
         System.out.println(encapusulation.getName());
 
-        // inherintance
+        //inheritance
         Inheritance newInheritance = new Inheritance();
         newInheritance.honk();
 
         // Polymorphism
+        
+    
+        
 
     }
 
