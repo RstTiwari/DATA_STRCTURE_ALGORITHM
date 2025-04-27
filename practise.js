@@ -1,27 +1,15 @@
-function subArray(array, num) {
-    // get the count of each Element
-    let result = [];
-    let temObj = {};
-    for (let num of array) {
-        if (temObj[num]) {
-            temObj[num] = temObj[num] + 1;
-        } else {
-            temObj[num] = 1;
-        }
-    }
-    for (let arr of array) {
-        let target = num - arr;
-        if (temObj[target]) {
-            result.push([arr, target]);
-        }
-    }
-    return result
-
+ async function fetchALlUser(){
+  let allUser = await User.find().lean()
 }
 
-// Big(0)   =  2N
+async function name(params) {
+    
+}
+
+
+// this can be use for both  1, 2 point with age city  going in req.query  if query null fetch all users
+app.get("/user",fetchALlUser)
 
 
 
-console.log(subArray([1,2,3,4,5,6,7,8,9],7))
-
+app.post("/updateUser",updateUser)  // payload {user_id:user_id}
