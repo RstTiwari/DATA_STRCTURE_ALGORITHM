@@ -10,8 +10,10 @@ public class RegexPattern {
 
 
         Pattern letters = Pattern.compile("^[aA-zZ]|^[1-9]");
-        Matcher letterMatched = letters.matcher("9");
-        Boolean letFound = letterMatched.find();
+        Matcher letterMatched = letters.matcher("00");
+        Boolean letFound = letterMatched.matches();
+        Boolean letFound1 = letterMatched.find();
+
         System.out.println(letFound);
 
     }
