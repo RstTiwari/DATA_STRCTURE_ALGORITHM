@@ -1,42 +1,16 @@
-function encryptString(str, num) {
-    // first joined the string
-    let joinedString = str.replaceAll(" ", "_").split("");
-
-    // iterate over the string string
-    for (let i = 0; i < joinedString.length; i++) {
-        // if its white space
-        if (joinedString[i] == "_") {
-            continue;
-        }
-
-        // else continue with logic
-        let temChar = joinedString[i];
-        // now managing the Code point of last Alphabet
-
-        let codePoint = temChar.codePointAt(0) + num;
-        let updateChar = String.fromCodePoint(codePoint);
-        joinedString[i] = updateChar;
+function fizzBuzz(num) {
+    if (num % 3 == 0 && num % 5 == 0) {
+        console.log("fizzBuzz");
+    } else if (num % 3 == 0) {
+        console.log("fizz");
+    } else if (num % 5 == 0) {
+        console.log("buzz");
+    } else {
+        console.log("not a fizzBuzz value");
     }
-    
-    // now let convert back the array into string
-    let temString = joinedString.join("").replaceAll("_"," ")
-    console.log(temString,"===")
-    return temString;
-}  
-
-
-
-
-console.log(encryptString("Hello World", 2))
-
-function expect(actual){
-   return {
-       toBe: function(expected) {
-        return `Test ${actual === expected ? 'Passed' : 'Failed'}`
-      }
-   }
 }
+fizzBuzz(0)
 
-console.log(expect(encryptString("Hello World", 2)).toBe("Jgnnq Yqtnf"))
-console.log(expect(encryptString("I love to code", 4)).toBe("M pszi xs gshi"))
-console.log(expect(encryptString("Javascript is an awesome language", 6)).toBe("Pgbgyixovz oy gt gckyusk rgtmagmk"))
+
+
+
