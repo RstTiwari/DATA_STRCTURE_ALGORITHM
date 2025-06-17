@@ -26,7 +26,7 @@ public class MatrixGraph {
     }
 
     public static void main(String[] args) {
-        MatrixGraph g = new MatrixGraph(5);
+        MatrixGraph g = new MatrixGraph(6);
         g.addEdges(0, 1);
         g.addEdges(0, 2);
         g.addEdges(1, 3);

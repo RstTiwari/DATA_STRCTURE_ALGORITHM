@@ -13,7 +13,7 @@ public class DFS {
         for (int i = 0; i < V; i++) {
             adjList[i] = new LinkedList<>();
         }
-    }
+    } 
 
     public void addEdge(int u, int v) {
         adjList[u].add(v);
