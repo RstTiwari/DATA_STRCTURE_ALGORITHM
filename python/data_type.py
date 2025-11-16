@@ -215,7 +215,6 @@ print(list_a[::-1])  # [5, 4, 3, 2, 1]
 #=> modifying List
 list_a[0] = -1
 print(list_a)
-
 print(list_a.append(10))  # None as it replaces on the place
 print(list_a) #  [-1, 2, 3, 4, 5, 10]
 print(list_a.pop(3))  # 4 as on index 3 is 4
