@@ -30,11 +30,8 @@ public:
 int
 main()
 {
-
-    solution = Soltution()
-
-        list<int, int>
-            twoSum = solution([ 1, 2, 4, 5, 3 ], 6)
-
-                return 0;
+    solution = Soltution();
+     list<int, int>twoSum = solution.twoSum([ 1, 2, 4, 5, 3 ], 6);
+     cout << twoSum;
+     return 0;
 }
