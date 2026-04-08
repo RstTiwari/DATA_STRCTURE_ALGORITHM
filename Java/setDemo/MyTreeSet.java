@@ -13,4 +13,7 @@ public class MytreeSet{
 
 
    private Node root;
+   public void add(){
+    
+   }
 }

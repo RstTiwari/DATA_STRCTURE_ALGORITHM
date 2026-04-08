@@ -31,6 +31,19 @@ public class Set {
         }
 
 
+
+        LinkedHashSet<String> flowers = new LinkedHashSet<String>();
+
+        flowers.add("Rose");
+        flowers.add("Lotous");
+        flowers.add("Chameli");
+
+        for (String flower:flowers ){
+           System.out.println(flower);
+        }
+
+
+
         
 
 
