@@ -23,6 +23,9 @@ print(sequence1)
 double = lambda x:x**2
 print(double(10))
 
+
+
+
 #use python list comprehension
 square = [x**2 for x in range(10)]
 print(square)
